@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> digiclick</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    .mobile-menu {
+      display: none;
+    }
+    @media (max-width: 768px) {
+      .desktop-menu {
+        display: none;
+      }
+      .mobile-menu {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+ 
+  <!-- Header -->
+  <header class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-5 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+      <h1 class="text-2xl sm:text-3xl font-bold">DIGI CLICK </h1>
+      <div class="desktop-menu space-x-6 text-sm">
+        <a href="#plans" class="hover:underline">Plans</a>
+        <a href="#about" class="hover:underline">About</a>
+        <a href="#reviews" class="hover:underline">Reviews</a>
+        <a href="#contact" class="hover:underline">Contact</a>
+      </div>
+      <div class="mobile-menu">
+        <select onchange="if(this.value) window.location.href=this.value" class="bg-white text-gray-800 px-2 py-1 rounded">
+          <option value="">Menu</option>
+          <option value="#plans">Plans</option>
+          <option value="#about">About</option>
+          <option value="#reviews">Reviews</option>
+          <option value="#contact">Contact</option>
+        </select>
+      </div>
+    </div>
+  </header> <!-- Promotion Bar -->
+  <!-- Promotion Bar (Animated) -->
+<div class="bg-yellow-300 overflow-hidden">
+  <div class="animate-marquee whitespace-nowrap text-black py-2 text-sm font-semibold inline-block">
+    🎁 Special Offer: Get 2 Subscriptions for the Price of 1 – Limited Time!
+  </div>
+</div>
+
+<style>
+  @keyframes marquee {
+    0%   { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+  .animate-marquee {
+    display: inline-block;
+    animation: marquee 15s linear infinite;
+  }
+</style>
+
+  <!-- Hero Section -->
+  <section class="bg-[url('https://images.unsplash.com/photo-1581090700227-1d44c64a0a00')] bg-cover bg-center py-20 text-white text-center">
+    <div class="bg-black bg-opacity-60 p-10 rounded-xl inline-block">
+      <h2 class="text-4xl font-bold mb-4">Stream Smarter, Pay Less</h2>
+      <p class="text-lg">Netflix, Prime, Hotstar & More from just ₹30/month</p>
+      <p class="text-sm mt-4 bg-yellow-300 text-black inline-block px-4 py-2 rounded-full">🎉 Limited Offer: Prime Video for ₹99 / 6 months</p>
+    </div>
+  </section>
+
+  <!-- OTT Plans Section -->
+<section id="plans" class="max-w-7xl mx-auto py-16 px-4">
+  <h3 class="text-3xl font-bold text-center mb-10">🔥 Popular OTT Subscriptions</h3>
+  <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+    <!-- Netflix -->
+    <div class="bg-white rounded-2xl p-6 text-center card-hover transition-transform duration-300">
+      <img src="https://images.ctfassets.net/y2ske730sjqp/1aONibCke6niZhgPxuiilC/2c401b05a07288746ddf3bd3943fbc76/BrandAssets_Logos_01-Wordmark.jpg?w=940" alt="Netflix" class="h-16 mx-auto mb-4">
+      <h4 class="text-xl font-semibold">Netflix Shared</h4>
+      <p class="text-gray-500">Only ₹79 / Month</p>
+    <a href="sbi.html">
+  <button class="mt-4 bg-red-600 text-white px-6 py-2 rounded-full hover:bg-red-700">
+    Get Now
+  </button>
+</a>
+
+</div>
+
+    <!-- Prime Video -->
+    <div class="bg-white rounded-2xl p-6 text-center card-hover transition-transform duration-300">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Prime_Video.png" alt="Prime Video" class="h-16 mx-auto mb-4">
+      <h4 class="text-xl font-semibold">Prime Video (6 Months)</h4>
+      <p class="text-gray-500">Only ₹99</p>
+      <button onclick="window.location.href='Prime.html?plan=PrimeVideo'" class="mt-4 bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700">Get Now</button>
+    </div>
+
+    <!-- Hotstar -->
+    <div class="bg-white rounded-2xl p-6 text-center card-hover transition-transform duration-300">
+      <img src="https://img-cdn.publive.online/fit-in/1200x675/entrackr/media/post_attachments/wp-content/uploads/2019/11/Disney.jpg" alt="Hotstar" class="h-16 mx-auto mb-4">
+      <h4 class="text-xl font-semibold">Disney+ Hotstar</h4>
+      <p class="text-gray-500">Only ₹45 / Month</p>
+      <button onclick="window.location.href='Hotstar.html?plan=Hotstar'" class="mt-4 bg-yellow-500 text-white px-6 py-2 rounded-full hover:bg-yellow-600">Get Now</button>
+    </div>
+
+    <!-- Zee5 -->
+    <div class="bg-white rounded-2xl p-6 text-center card-hover transition-transform duration-300">
+      <img src="https://etimg.etb2bimg.com/photo/76315700.cms" alt="Zee5" class="h-16 mx-auto mb-4">
+      <h4 class="text-xl font-semibold">Zee5 Premium</h4>
+      <p class="text-gray-500">Only ₹40 / Month</p>
+      <button onclick="location.href='zee.html?plan=Zee5'" class="bg-red-600 text-white px-6 py-2 rounded-full">Get Now</button>
+</div>
+
+    <!-- JioCinema -->
+    <div class="bg-white rounded-2xl p-6 text-center card-hover transition-transform duration-300">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxwKek_0pzBO_DgSal0ne2H6B9Gw8AiZ-nB30TxIzd0PbrX5ioGbXFqnFzDgxxATmqNn8&usqp=CAU" alt="JioCinema" class="h-16 mx-auto mb-4">
+      <h4 class="text-xl font-semibold">JioCinema Premium</h4>
+      <p class="text-gray-500">Only ₹25 / Month</p>
+      <button onclick="window.location.href='jio.html?plan=JioCinema'" class="mt-4 bg-pink-500 text-white px-6 py-2 rounded-full hover:bg-pink-600">Get Now</button>
+    </div>
+
+  </div>
+</section>
+
+
+  <!-- About -->
+  <section id="about" class="bg-white py-16 px-6 text-center">
+    <h3 class="text-3xl font-bold mb-6">Why Choose ottadda?</h3>
+    <p class="text-gray-700 max-w-3xl mx-auto text-lg">We’re the most trusted OTT provider in India. ottadda helps you access all your favorite streaming platforms at the lowest prices without compromising on quality. Enjoy secure delivery, 24x7 support, and instant access.</p>
+  </section>
+
+  <!-- Reviews -->
+  <section id="reviews" class="bg-gray-100 py-16 px-4">
+    <h3 class="text-3xl font-bold text-center mb-10">🌟 Customer Reviews</h3>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div class="bg-white p-6 rounded-xl shadow">
+        <p>“Super fast and smooth! I got my Prime access instantly.”</p>
+        <p class="text-sm mt-2 text-blue-600 font-semibold">– Riya Mehta</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow">
+        <p>“ottadda is the best. Cheapest and reliable OTT subscriptions!”</p>
+        <p class="text-sm mt-2 text-blue-600 font-semibold">– Nikhil Sharma</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow">
+        <p>“Excellent support. I made payment and got login within minutes.”</p>
+        <p class="text-sm mt-2 text-blue-600 font-semibold">– Anjali Verma</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="bg-white py-16 text-center">
+    <h3 class="text-3xl font-bold mb-4">📞 Contact Us</h3>
+    <p class="text-gray-700 text-lg">Still have questions? Talk to us on WhatsApp</p>
+    <a href="https://wa.me/918764023747" class="mt-6 inline-block bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-full text-lg">Chat Now</a>
+  </section>
+
+  <footer class="bg-gradient-to-r from-gray-100 to-gray-200 py-6 text-center text-sm text-gray-500">
+    © 2025 digiclick · Built for India · All Rights Reserved
+  </footer>
+
+  <script>
+    function pay(amount, product) {
+      const options = {
+        key: "rzp_live_HSwRAiDg7mhSej",
+        amount: amount * 100,
+        currency: "INR",
+        name: "digiclick",
+        description: `${product} Subscription`,
+        handler: function (response) {
+          window.location.href = `https://wa.me/918764023747?text=Hi,%20I%20have%20paid%20₹${amount}%20for%20${product}.%20Order%20ID:%20${response.razorpay_payment_id}`;
+        },
+        theme: {
+          color: "#2563eb"
+        }
+      };
+      const rzp = new Razorpay(options);
+      rzp.open();
+    }
+  </script>
+</body>
+</html>
