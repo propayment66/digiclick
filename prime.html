@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Prime Video Plans | digiclick</title>
+
+  <!-- Razorpay -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  <!-- Custom Styles -->
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .plan-row:hover { background-color: #f9f9f9; }
+    input[type="radio"]:checked + label { border-color: #0f79af; background-color: #f0f8ff; }
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    .scrolling-wrapper {
+      display: flex;
+      overflow-x: auto;
+      gap: 1rem;
+      scroll-behavior: smooth;
+      padding-bottom: 1rem;
+    }
+    .scrolling-wrapper::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+<!-- Header -->
+<header class="bg-white shadow-sm sticky top-0 z-50">
+  <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+    <h1 class="text-2xl font-bold text-blue-600">ZYPACK</h1>
+    <a href="index.html" class="text-sm text-blue-600 hover:underline">← Back to Home</a>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="bg-black text-white py-12 text-center">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Prime_Video.png" class="h-12 mx-auto mb-3" alt="Prime Video Logo"/>
+  <h2 class="text-3xl font-extrabold mb-1">Prime Video OTT Deals</h2>
+  <p class="text-sm max-w-lg mx-auto text-gray-300">100% Genuine Plans. Instant Activation on WhatsApp. No login sharing issues.</p>
+</section>
+
+<!-- Plan Selection -->
+<section class="max-w-3xl mx-auto mt-10 px-4">
+  <h3 class="text-xl font-semibold mb-4">Choose Your Plan</h3>
+  <form id="planForm" class="space-y-3">
+    <div class="plan-row flex items-center p-3 bg-white border rounded-md cursor-pointer">
+      <input type="radio" name="plan" value="1" id="plan1" class="mr-3" checked>
+      <label for="plan1" class="flex justify-between w-full cursor-pointer">
+        <div>
+          <p class="font-medium">Prime Video 1 Month</p>
+          <p class="text-sm text-gray-600">Valid for 30 days, Premium Access</p>
+        </div>
+        <div class="font-bold text-blue-600 text-lg">₹49</div>
+      </label>
+    </div>
+
+    <div class="plan-row flex items-center p-3 bg-white border rounded-md cursor-pointer">
+      <input type="radio" name="plan" value="3" id="plan3" class="mr-3">
+      <label for="plan3" class="flex justify-between w-full cursor-pointer">
+        <div>
+          <p class="font-medium">Prime Video 3 Months</p>
+          <p class="text-sm text-gray-600">Valid for 90 days, Premium Access</p>
+        </div>
+        <div class="font-bold text-blue-600 text-lg">₹119</div>
+      </label>
+    </div>
+
+    <div class="plan-row flex items-center p-3 bg-white border rounded-md cursor-pointer">
+      <input type="radio" name="plan" value="6" id="plan6" class="mr-3">
+      <label for="plan6" class="flex justify-between w-full cursor-pointer">
+        <div>
+          <p class="font-medium">Prime Video 6 Months</p>
+          <p class="text-sm text-gray-600">Valid for 180 days, Premium Access</p>
+        </div>
+        <div class="font-bold text-blue-600 text-lg">₹199</div>
+      </label>
+    </div>
+  </form>
+</section>
+
+<!-- You May Also Like Section -->
+<section class="bg-white py-12 px-4">
+  <h3 class="text-2xl font-bold mb-6 text-center">🎬 You May Also Like</h3>
+  <div class="scrolling-wrapper px-2">
+    <!-- Netflix -->
+    <div class="min-w-[250px] bg-white rounded-xl shadow-lg p-4 card-hover flex-shrink-0">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" class="h-12 mb-3" alt="Netflix">
+      <h4 class="font-semibold text-lg">Netflix Shared</h4>
+      <p class="text-gray-500 text-sm mb-2">Watch premium Netflix at ₹79/month.</p>
+      <label class="inline-flex items-center">
+        <input type="checkbox" value='{"name": "Netflix Shared", "amount": 79}' class="product-checkbox mr-2"> Select
+      </label>
+    </div>
+
+    <!-- Hotstar -->
+    <div class="min-w-[250px] bg-white rounded-xl shadow-lg p-4 card-hover flex-shrink-0">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/11/Disney%2B_Hotstar_logo.svg" class="h-12 mb-3" alt="Hotstar">
+      <h4 class="font-semibold text-lg">Disney+ Hotstar</h4>
+      <p class="text-gray-500 text-sm mb-2">Live sports & shows at ₹45/month.</p>
+      <label class="inline-flex items-center">
+        <input type="checkbox" value='{"name": "Hotstar", "amount": 45}' class="product-checkbox mr-2"> Select
+      </label>
+    </div>
+
+    <!-- Zee5 -->
+    <div class="min-w-[250px] bg-white rounded-xl shadow-lg p-4 card-hover flex-shrink-0">
+      <img src="https://play-lh.googleusercontent.com/z4r6TA65g9cE4gkM9dU3rGoSjjLOPbsjql_c-oc-ABcrKc5G9Zox4T7NS96uCRccnQE=w240-h480-rw" class="h-12 mb-3" alt="Zee5">
+      <h4 class="font-semibold text-lg">Zee5 Premium</h4>
+      <p class="text-gray-500 text-sm mb-2">Unlimited content at ₹40/month.</p>
+      <label class="inline-flex items-center">
+        <input type="checkbox" value='{"name": "Zee5", "amount": 40}' class="product-checkbox mr-2"> Select
+      </label>
+    </div>
+  </div>
+
+  <!-- Buy Button -->
+  <div class="text-center mt-8">
+    <button onclick="buyNow()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium">
+      Buy Now
+    </button>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-100 text-gray-600 text-sm mt-16">
+  <div class="max-w-6xl mx-auto px-6 py-10 grid grid-cols-1 sm:grid-cols-3 gap-8 border-t">
+    <div>
+      <h5 class="font-semibold mb-2">digi click</h5>
+      <p>Trusted by 10K+ users for affordable OTT subscriptions.</p>
+    </div>
+    <div>
+      <h5 class="font-semibold mb-2">Links</h5>
+      <ul>
+        <li><a href="index.html" class="hover:underline">Home</a></li>
+        <li><a href="https://wa.me/918764023747" class="hover:underline">Support</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5 class="font-semibold mb-2">Payment</h5>
+      <img src="https://cdn.iconscout.com/icon/free/png-256/razorpay-1-282307.png" class="h-6" alt="Razorpay"/>
+    </div>
+  </div>
+  <div class="text-center py-4 border-t">© 2025 digiclick. All rights reserved.</div>
+</footer>
+
+<!-- Razorpay Payment Logic -->
+<script>
+  function buyNow() {
+    const plan = document.querySelector('input[name="plan"]:checked').value;
+    let amount = 49, label = "Prime Video - 1 Month";
+
+    if (plan === "3") {
+      amount = 119;
+      label = "Prime Video - 3 Months";
+    } else if (plan === "6") {
+      amount = 199;
+      label = "Prime Video - 6 Months";
+    }
+
+    const selected = Array.from(document.querySelectorAll('.product-checkbox:checked'))
+      .map(el => JSON.parse(el.value));
+
+    const selectedNames = selected.map(item => item.name);
+    const selectedAmount = selected.reduce((sum, item) => sum + item.amount, 0);
+    const totalAmount = amount + selectedAmount;
+    const fullLabel = selectedNames.length
+      ? `${label} + ${selectedNames.join(', ')}`
+      : label;
+
+    const options = {
+      key: "rzp_live_HSwRAiDg7mhSej",
+      amount: totalAmount * 100,
+      currency: "INR",
+      name: "ZYPACK",
+      description: fullLabel,
+      handler: function (response) {
+        window.location.href = `https://wa.me/918764023747?text=Hi,%20I%20paid%20₹${totalAmount}%20for%20${fullLabel}.%20Order%20ID:%20${response.razorpay_payment_id}`;
+      },
+      theme: { color: "#0f79af" }
+    };
+
+    const rzp = new Razorpay(options);
+    rzp.open();
+  }
+</script>
+
+</body>
+</html>
