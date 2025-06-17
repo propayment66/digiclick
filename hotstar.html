@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hotstar Plans | digiclick</title>
+
+  <!-- Razorpay -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  <!-- Custom Styles -->
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .plan-row:hover { background-color: #f9f9f9; }
+    input[type="radio"]:checked + label { border-color: #0077b6; background-color: #e0f7ff; }
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    .scrolling-wrapper {
+      display: flex;
+      overflow-x: auto;
+      gap: 1rem;
+      scroll-behavior: smooth;
+      padding-bottom: 1rem;
+    }
+    .scrolling-wrapper::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+<!-- Header -->
+<header class="bg-white shadow-sm sticky top-0 z-50">
+  <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+    <h1 class="text-2xl font-bold text-blue-600">ZYPACK</h1>
+    <a href="index.html" class="text-sm text-blue-600 hover:underline">← Back to Home</a>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="bg-blue-900 text-white py-12 text-center">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/1/11/Disney%2B_Hotstar_logo.svg" class="h-12 mx-auto mb-3" alt="Hotstar Logo"/>
+  <h2 class="text-3xl font-extrabold mb-1">Hotstar OTT Deals</h2>
+  <p class="text-sm max-w-lg mx-auto text-gray-300">Enjoy live sports, TV shows, movies & more. 100% Genuine Plans. Instant Delivery via WhatsApp.</p>
+</section>
+
+<!-- Plan Selection -->
+<section class="max-w-3xl mx-auto mt-10 px-4">
+  <h3 class="text-xl font-semibold mb-4">Choose Your Plan</h3>
+  <form id="planForm" class="space-y-3">
+    <div class="plan-row flex items-center p-3 bg-white border rounded-md cursor-pointer">
+      <input type="radio" name="plan" value="1" id="plan1" class="mr-3" checked>
+      <label for="plan1" class="flex justify-between w-full cursor-pointer">
+        <div>
+          <p class="font-medium">Hotstar 1 Month</p>
+          <p class="text-sm text-gray-600">Live Cricket, Movies, TV – Valid 30 Days</p>
+        </div>
+        <div class="font-bold text-blue-700 text-lg">₹45</div>
+      </label>
+    </div>
+
+    <div class="plan-row flex items-center p-3 bg-white border rounded-md cursor-pointer">
+      <input type="radio" name="plan" value="3" id="plan3" class="mr-3">
+      <label for="plan3" class="flex justify-between w-full cursor-pointer">
+        <div>
+          <p class="font-medium">Hotstar 3 Months</p>
+          <p class="text-sm text-gray-600">All access – Valid 90 Days</p>
+        </div>
+        <div class="font-bold text-blue-700 text-lg">₹99</div>
+      </label>
+    </div>
+
+    <div class="plan-row flex items-center p-3 bg-white border rounded-md cursor-pointer">
+      <input type="radio" name="plan" value="6" id="plan6" class="mr-3">
+      <label for="plan6" class="flex justify-between w-full cursor-pointer">
+        <div>
+          <p class="font-medium">Hotstar 6 Months</p>
+          <p class="text-sm text-gray-600">All content & sports – Valid 180 Days</p>
+        </div>
+        <div class="font-bold text-blue-700 text-lg">₹169</div>
+      </label>
+    </div>
+  </form>
+</section>
+
+<!-- Buy Button -->
+<div class="text-center my-12">
+  <button onclick="buyNow()" class="bg-blue-700 hover:bg-blue-800 text-white px-6 py-3 rounded-lg font-medium">
+    Buy Now
+  </button>
+</div>
+
+<!-- Footer -->
+<footer class="bg-gray-100 text-gray-600 text-sm mt-16">
+  <div class="max-w-6xl mx-auto px-6 py-10 grid grid-cols-1 sm:grid-cols-3 gap-8 border-t">
+    <div>
+      <h5 class="font-semibold mb-2">digi click</h5>
+      <p>Trusted by 10K+ users for affordable OTT subscriptions.</p>
+    </div>
+    <div>
+      <h5 class="font-semibold mb-2">Links</h5>
+      <ul>
+        <li><a href="index.html" class="hover:underline">Home</a></li>
+        <li><a href="https://wa.me/918764023747" class="hover:underline">Support</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5 class="font-semibold mb-2">Payment</h5>
+      <img src="https://cdn.iconscout.com/icon/free/png-256/razorpay-1-282307.png" class="h-6" alt="Razorpay"/>
+    </div>
+  </div>
+  <div class="text-center py-4 border-t">© 2025 digiclick. All rights reserved.</div>
+</footer>
+
+<!-- Razorpay Logic -->
+<script>
+  function buyNow() {
+    const plan = document.querySelector('input[name="plan"]:checked').value;
+    let amount = 45, label = "Hotstar - 1 Month";
+
+    if (plan === "3") {
+      amount = 99;
+      label = "Hotstar - 3 Months";
+    } else if (plan === "6") {
+      amount = 169;
+      label = "Hotstar - 6 Months";
+    }
+
+    const options = {
+      key: "rzp_live_HSwRAiDg7mhSej", // Replace with your actual Razorpay key
+      amount: amount * 100,
+      currency: "INR",
+      name: "ZYPACK",
+      description: label,
+      handler: function (response) {
+        window.location.href = `https://wa.me/918764023747?text=Hi,%20I%20paid%20₹${amount}%20for%20${label}.%20Order%20ID:%20${response.razorpay_payment_id}`;
+      },
+      theme: { color: "#0077b6" }
+    };
+
+    const rzp = new Razorpay(options);
+    rzp.open();
+  }
+</script>
+
+</body>
+</html>
